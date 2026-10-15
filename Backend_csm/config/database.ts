@@ -1,17 +1,12 @@
 import type { Core } from '@strapi/strapi';
 
 /**
- * PostgreSQL only. There is deliberately no SQLite fallback: a missing or
- * misspelled env var must fail loudly at boot instead of silently starting
- * Strapi against an empty local file.
+ * PostgreSQL only — there is deliberately no SQLite fallback.
+ *
+ * Do not throw on missing env here: `strapi build` also loads this file, and at
+ * image build time the database env is intentionally absent (it is injected at
+ * run time). A missing value still fails loudly at boot as a connection error.
  */
-const REQUIRED_WITHOUT_URL = [
-  'DATABASE_HOST',
-  'DATABASE_NAME',
-  'DATABASE_USERNAME',
-  'DATABASE_PASSWORD',
-] as const;
-
 const config = ({ env }: Core.Config.Shared.ConfigParams): Core.Config.Database => {
   const client = env('DATABASE_CLIENT', 'postgres');
 
@@ -19,26 +14,14 @@ const config = ({ env }: Core.Config.Shared.ConfigParams): Core.Config.Database 
     throw new Error(`Unsupported DATABASE_CLIENT "${client}". Aksara runs on PostgreSQL only.`);
   }
 
-  const connectionString = env('DATABASE_URL') || undefined;
-
-  if (!connectionString) {
-    const missing = REQUIRED_WITHOUT_URL.filter((key) => !env(key));
-    if (missing.length > 0) {
-      throw new Error(
-        `Missing database env: ${missing.join(', ')}. Copy .env.example to .env and fill it in.`
-      );
-    }
-  }
-
   const postgres: Core.Config.Database['connection'] = {
     client: 'postgres',
     connection: {
-      connectionString,
-      // Presence is validated above; defaults only satisfy the type when DATABASE_URL is used.
+      connectionString: env('DATABASE_URL') || undefined,
       host: env('DATABASE_HOST', 'localhost'),
       port: env.int('DATABASE_PORT', 5432),
-      database: env('DATABASE_NAME', ''),
-      user: env('DATABASE_USERNAME', ''),
+      database: env('DATABASE_NAME', 'aksara_cms'),
+      user: env('DATABASE_USERNAME', 'postgres'),
       password: env('DATABASE_PASSWORD', ''),
       ssl: env.bool('DATABASE_SSL', false) && {
         key: env('DATABASE_SSL_KEY', undefined),
