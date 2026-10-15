@@ -1,0 +1,33 @@
+# Weekly dependency update PRs. Each PR runs through CI like any other change.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: ci
+
+  - package-ecosystem: npm
+    directory: /Backend_csm
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: chore
+    open-pull-requests-limit: 5
+    groups:
+      # Strapi packages must move together; one PR instead of one per package.
+      strapi:
+        patterns:
+          - "@strapi/*"
+      minor-and-patch:
+        update-types:
+          - minor
+          - patch
+
+  - package-ecosystem: docker
+    directory: /Backend_csm
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: chore
