@@ -1,4 +1,8 @@
 # Weekly dependency update PRs. Each PR runs through CI like any other change.
+#
+# Version policy: runtime-coupled packages stay on the majors the project targets
+# (Node 24 LTS, TypeScript 5 for Strapi v5). Moving to a new major is a planned
+# change made by editing these `ignore` rules in a dedicated PR, not by the bot.
 version: 2
 updates:
   - package-ecosystem: github-actions
@@ -15,6 +19,13 @@ updates:
     commit-message:
       prefix: chore
     open-pull-requests-limit: 5
+    ignore:
+      # Must match the Node runtime (24 LTS).
+      - dependency-name: "@types/node"
+        versions: [">=25"]
+      # Strapi v5 targets TypeScript 5.
+      - dependency-name: typescript
+        versions: [">=6"]
     groups:
       # Strapi packages must move together; one PR instead of one per package.
       strapi:
@@ -31,3 +42,7 @@ updates:
       interval: weekly
     commit-message:
       prefix: chore
+    ignore:
+      # Same Node major as local development and CI (setup-node 24.19).
+      - dependency-name: node
+        versions: [">=25"]
