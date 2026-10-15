@@ -1,0 +1,60 @@
+{
+  "kind": "collectionType",
+  "collectionName": "articles",
+  "info": {
+    "singularName": "article",
+    "pluralName": "articles",
+    "displayName": "Article",
+    "description": "Artikel insights dengan ringkasan & SEO otomatis"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 200
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "cover": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "summary": {
+      "type": "text",
+      "maxLength": 500
+    },
+    "seoMeta": {
+      "type": "text",
+      "maxLength": 200
+    },
+    "author": {
+      "type": "string",
+      "maxLength": 100,
+      "default": "Aksara Bitian"
+    },
+    "aiStatus": {
+      "type": "enumeration",
+      "enum": ["pending", "generated", "failed", "manual"],
+      "default": "pending",
+      "required": true
+    },
+    "tags": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::tag.tag",
+      "inversedBy": "articles"
+    }
+  }
+}

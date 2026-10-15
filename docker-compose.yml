@@ -1,0 +1,46 @@
+# One-command local stack for reviewers: PostgreSQL + Strapi (production build).
+#   cp Backend_csm/.env.example Backend_csm/.env   # then fill in the secrets
+#   docker compose up --build
+# Admin: http://localhost:1337/admin
+name: aksara
+
+services:
+  db:
+    image: postgres:17
+    environment:
+      POSTGRES_DB: aksara_cms
+      POSTGRES_USER: aksara
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-aksara_local}
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U aksara -d aksara_cms"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    restart: unless-stopped
+
+  strapi:
+    build:
+      context: ./Backend_csm
+    env_file:
+      - ./Backend_csm/.env
+    environment:
+      # The container talks to the `db` service, not the host's PostgreSQL.
+      DATABASE_CLIENT: postgres
+      DATABASE_URL: ""
+      DATABASE_HOST: db
+      DATABASE_PORT: "5432"
+      DATABASE_NAME: aksara_cms
+      DATABASE_USERNAME: aksara
+      DATABASE_PASSWORD: ${POSTGRES_PASSWORD:-aksara_local}
+      DATABASE_SSL: "false"
+    ports:
+      - "${STRAPI_PORT:-1337}:1337"
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  db-data:

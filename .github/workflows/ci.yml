@@ -1,0 +1,59 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  backend:
+    name: Backend · typecheck & build
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Backend_csm
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.19'
+          cache: npm
+          cache-dependency-path: Backend_csm/package-lock.json
+      - run: npm ci --no-audit --no-fund
+      - name: Typecheck
+        run: npx tsc --noEmit -p tsconfig.json
+      - name: Build admin panel
+        run: |
+          cp .env.example .env
+          npm run build
+
+  docker:
+    name: Docker Compose · boot & smoke test
+    runs-on: ubuntu-latest
+    needs: backend
+    steps:
+      - uses: actions/checkout@v4
+      - name: Prepare env
+        run: cp Backend_csm/.env.example Backend_csm/.env
+      - name: Start stack
+        run: docker compose up -d --build --wait --wait-timeout 300
+      - name: Smoke test public API
+        run: |
+          set -e
+          test "$(curl -s -o /dev/null -w '%{http_code}' http://localhost:1337/_health)" = "204"
+          test "$(curl -s -o /dev/null -w '%{http_code}' http://localhost:1337/api/articles)" = "200"
+          # Public role is read-only: writes must be rejected.
+          test "$(curl -s -o /dev/null -w '%{http_code}' -X POST -H 'Content-Type: application/json' -d '{"data":{}}' http://localhost:1337/api/articles)" = "403"
+      - name: Logs on failure
+        if: failure()
+        run: docker compose logs --no-color
+      - name: Tear down
+        if: always()
+        run: docker compose down -v

@@ -1,0 +1,47 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build output
+dist/
+build/
+.output/
+.astro/
+.strapi/
+.cache/
+
+# Env — never commit secrets
+.env
+.env.local
+.env.*.local
+*.env
+!.env.example
+
+# Database
+*.sqlite
+*.sqlite3
+*.db
+
+# Uploads (Strapi media) — keep the folder, ignore its contents
+Backend_csm/public/uploads/*
+!Backend_csm/public/uploads/.gitkeep
+
+# Logs
+*.log
+npm-debug.log*
+logs/
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# Misc
+*.tsbuildinfo
+coverage/
+.tmp/
+
+# Strapi per-machine files
+.strapi-updater.json
