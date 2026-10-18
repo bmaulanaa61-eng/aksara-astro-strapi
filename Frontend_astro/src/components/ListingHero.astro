@@ -1,0 +1,5 @@
+---
+interface Props { title: string; intro: string; count?: number|string } const { title, intro, count }=Astro.props;
+---
+<header class="listing wrap"><div><p class="eyebrow">{count !== undefined ? `${count} —` : 'A —'}</p><h1>{title}</h1></div><p class="intro">{intro}</p></header>
+<style>.listing{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(18rem,.6fr);align-items:end;gap:3rem;padding:clamp(5rem,11vw,10rem) 0}.listing h1{margin:0;max-width:9ch}.intro{color:var(--muted);font-size:1.15rem;margin:0 0 1rem}@media(max-width:700px){.listing{grid-template-columns:1fr;padding:5rem 0}.listing h1{font-size:clamp(3.5rem,18vw,6rem)}}</style>

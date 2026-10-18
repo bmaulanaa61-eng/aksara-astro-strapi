@@ -1,0 +1,10 @@
+---
+import BrandMark from './BrandMark.astro';
+import type { Global, Locale } from '../lib/types';
+interface Props { locale: Locale; global: Global }
+const { locale, global } = Astro.props;
+---
+<footer><div class="wrap footer-grid"><div><BrandMark /><p class="tagline">{global.tagline}</p></div><div class="footer-nav">{global.primaryNav.map((item) => <a href={item.url}>{item.label}</a>)}{global.footerNav.map((item) => <a href={item.url} target={item.openInNewTab ? '_blank' : undefined} rel={item.openInNewTab ? 'noopener noreferrer' : undefined}>{item.label}</a>)}</div></div><div class="wrap footnote"><p>{global.footerNote}</p><p>© {new Date().getFullYear()} · {locale === 'id' ? 'Dibangun dengan Astro' : 'Built with Astro'}</p></div></footer>
+<style>
+footer{padding:5rem 0 2rem;background:var(--ink);color:var(--paper)}.footer-grid{display:grid;grid-template-columns:2fr 1fr;gap:3rem;padding-bottom:5rem}.tagline{color:#abb4ad;font-family:var(--font-display);font-size:1.8rem;line-height:1.2;max-width:18ch}.footer-nav{display:grid;align-content:start;gap:.75rem}.footer-nav a{width:max-content}.footnote{display:flex;justify-content:space-between;gap:2rem;border-top:1px solid #3c453f;padding-top:1.5rem;color:#abb4ad;font-size:.82rem}.footnote p{margin:0}@media(max-width:650px){.footer-grid{grid-template-columns:1fr}.footnote{display:block}.footnote p+ p{margin-top:.75rem}}
+</style>

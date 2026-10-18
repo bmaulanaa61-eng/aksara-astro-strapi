@@ -1,0 +1,15 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+import { getContent } from '../lib/strapi';
+import type { Locale, Seo } from '../lib/types';
+interface Props { locale: Locale; seo?: Seo; alternatePath: string; canonicalPath?: string; structuredData?: Record<string, unknown> | Record<string, unknown>[]; openGraphType?: 'website' | 'article' }
+const { locale, seo, alternatePath, canonicalPath = Astro.url.pathname, structuredData, openGraphType = 'website' } = Astro.props;
+const content = getContent(locale); const meta = seo || content.global.defaultSeo;
+const site = Astro.site || new URL('https://aksara.pages.dev');
+const canonical = new URL(meta.canonicalURL || canonicalPath, site);
+const alternateUrl = new URL(alternatePath, site);
+const idUrl = locale === 'id' ? canonical : alternateUrl; const enUrl = locale === 'en' ? canonical : alternateUrl;
+---
+<!doctype html><html lang={locale}><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width"/><meta name="generator" content={Astro.generator}/><link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin/><link rel="preload" href="/fonts/newsreader-latin.woff2" as="font" type="font/woff2" crossorigin/><link rel="icon" type="image/svg+xml" href="/favicon.svg"/><title>{meta.metaTitle}</title><meta name="description" content={meta.metaDescription}/><meta name="theme-color" content="#f3efe5"/><meta name="robots" content={meta.metaRobots || 'index,follow'}/><link rel="canonical" href={canonical}/><link rel="alternate" hreflang="id" href={idUrl}/><link rel="alternate" hreflang="en" href={enUrl}/><link rel="alternate" hreflang="x-default" href={idUrl}/><meta property="og:type" content={openGraphType}/><meta property="og:site_name" content="Aksara"/><meta property="og:locale" content={locale === 'id' ? 'id_ID' : 'en_GB'}/><meta property="og:title" content={meta.metaTitle}/><meta property="og:description" content={meta.metaDescription}/><meta property="og:url" content={canonical}/><meta name="twitter:card" content="summary"/><meta name="twitter:title" content={meta.metaTitle}/><meta name="twitter:description" content={meta.metaDescription}/>{structuredData && <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />}</head><body><a class="skip-link" href="#main">{locale === 'id' ? 'Lewati ke konten' : 'Skip to content'}</a><Header locale={locale} global={content.global} alternatePath={alternatePath}/><main id="main"><slot /></main><Footer locale={locale} global={content.global}/></body></html>

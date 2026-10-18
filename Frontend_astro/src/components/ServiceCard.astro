@@ -1,0 +1,7 @@
+---
+import type { Locale, Service } from '../lib/types'; import { copy } from '../lib/i18n'; import { entryPath } from '../lib/paths';
+interface Props { item: Service; locale: Locale } const { item, locale } = Astro.props;
+const symbols: Record<string,string>={design:'✦',engineering:'⌁',content:'¶',seo:'↗',brand:'A',support:'+'};
+---
+<article class="card"><div class="meta">{symbols[item.icon] || '•'} &nbsp; {String(item.order).padStart(2,'0')}</div><h3>{item.title}</h3><p>{item.summary}</p><a aria-label={`${copy[locale].readMore}: ${item.title}`} href={entryPath(locale,'service',item.slug)}>{copy[locale].readMore} <span aria-hidden="true">→</span></a></article>
+<style>a{margin-top:1rem;font-weight:600}.meta{font-size:1.4rem!important;color:var(--clay)}</style>
