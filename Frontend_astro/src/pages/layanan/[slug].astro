@@ -1,0 +1,4 @@
+---
+import ServiceDetail from '../../components/ServiceDetail.astro';import {getContent}from'../../lib/strapi';export function getStaticPaths(){return getContent('id').services.map(item=>({params:{slug:item.slug},props:{item}}))}const{item}=Astro.props;
+---
+<ServiceDetail locale="id" item={item}/>

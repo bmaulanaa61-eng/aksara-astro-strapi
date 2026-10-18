@@ -1,0 +1,4 @@
+---
+import TagPage from '../../../components/TagPage.astro';import {getContent}from'../../../lib/strapi';export function getStaticPaths(){return getContent('id').tags.map(tag=>({params:{slug:tag.slug},props:{tag}}))}const{tag}=Astro.props;
+---
+<TagPage locale="id" tag={tag}/>

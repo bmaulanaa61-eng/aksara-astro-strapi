@@ -1,0 +1,4 @@
+---
+import ArticleDetail from '../../components/ArticleDetail.astro';import {getContent}from'../../lib/strapi';export function getStaticPaths(){return getContent('id').articles.map(item=>({params:{slug:item.slug},props:{item}}))}const{item}=Astro.props;
+---
+<ArticleDetail locale="id" item={item}/>

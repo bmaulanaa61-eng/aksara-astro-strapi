@@ -1,0 +1,5 @@
+---
+import type { Article, Locale } from '../lib/types'; import { copy, formatDate } from '../lib/i18n'; import { entryPath } from '../lib/paths'; import { readingTime } from '../lib/rich-text'; interface Props { item: Article; locale: Locale } const { item, locale }=Astro.props;
+---
+<article class="card article-card"><div class="meta"><time datetime={item.publishedAt}>{formatDate(item.publishedAt,locale)}</time> · {readingTime(item.content)} {copy[locale].minutes}</div><h3>{item.title}</h3>{item.summary && <p>{item.summary}</p>}<div class="tag-list">{item.tags.map((tag)=><span class="tag">{tag.name}</span>)}</div><a aria-label={`${copy[locale].readMore}: ${item.title}`} href={entryPath(locale,'article',item.slug)}>{copy[locale].readMore} <span aria-hidden="true">→</span></a></article>
+<style>.article-card a{margin-top:1.5rem;font-weight:600}.article-card .tag-list{margin-top:auto}.article-card h3{margin-top:2.5rem}</style>

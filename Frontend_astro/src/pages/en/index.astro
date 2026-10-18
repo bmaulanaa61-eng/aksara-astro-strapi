@@ -1,0 +1,4 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';import PageSections from '../../components/PageSections.astro';import {getHome}from'../../lib/strapi';import type{FaqSection}from'../../lib/types';const page=getHome('en');const faq=page.sections.find((section):section is FaqSection=>section.__component==='sections.faq');const structuredData=[{"@context":"https://schema.org","@type":"Organization",name:'Aksara',description:page.seo.metaDescription,url:Astro.site},...(faq?[{"@context":"https://schema.org","@type":"FAQPage",mainEntity:faq.items.map(item=>({"@type":"Question",name:item.question,acceptedAnswer:{"@type":"Answer",text:item.answer}}))}]:[])];
+---
+<BaseLayout locale="en" seo={page.seo} alternatePath="/" structuredData={structuredData}><PageSections locale="en" sections={page.sections}/></BaseLayout>

@@ -1,0 +1,5 @@
+---
+interface Props { eyebrow: string; title: string; intro: string; meta?: string } const { eyebrow,title,intro,meta }=Astro.props;
+---
+<header class="detail wrap"><p class="eyebrow">{eyebrow}</p><h1>{title}</h1><div class="lower"><p class="intro">{intro}</p>{meta && <p class="meta">{meta}</p>}</div></header>
+<style>.detail{padding:clamp(5rem,10vw,9rem) 0 4rem}.detail h1{font-size:clamp(3.5rem,9vw,8rem);max-width:13ch}.lower{display:grid;grid-template-columns:minmax(0,42rem) 1fr;gap:2rem;align-items:end}.intro{font-family:var(--font-display);font-size:clamp(1.35rem,2.3vw,2rem);line-height:1.45;margin:0}.meta{text-align:right;color:var(--muted);margin:0}@media(max-width:700px){.lower{grid-template-columns:1fr}.meta{text-align:left}}</style>

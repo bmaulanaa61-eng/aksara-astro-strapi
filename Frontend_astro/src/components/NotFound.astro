@@ -1,0 +1,5 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';import {copy,routes} from '../lib/i18n';import type{Locale}from'../lib/types';interface Props{locale:Locale}const{locale}=Astro.props;const c=copy[locale];
+---
+<BaseLayout locale={locale} seo={{metaTitle:`404 — Aksara`,metaDescription:c.notFoundBody,metaRobots:'noindex,follow'}} alternatePath={locale==='id'?'/en/404/':'/404/'}><section class="not-found wrap"><span>404</span><div><h1>{c.notFound}</h1><p>{c.notFoundBody}</p><a class="button primary" href={routes[locale].home}>{c.back}</a></div></section></BaseLayout>
+<style>.not-found{min-height:70vh;display:grid;grid-template-columns:1fr 2fr;gap:3rem;align-items:center}.not-found>span{font-family:var(--font-display);font-size:clamp(6rem,20vw,15rem);color:var(--clay)}.not-found h1{font-size:clamp(3rem,7vw,6rem)}@media(max-width:700px){.not-found{grid-template-columns:1fr}}</style>
