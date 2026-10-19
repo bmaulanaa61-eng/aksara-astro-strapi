@@ -34,6 +34,20 @@ function errorMessage(error: unknown) {
   return candidate.response?.data?.error?.message ?? candidate.response?.data?.message ?? candidate.message ?? 'Aksi AI gagal.';
 }
 
+// Strapi stores relations as { connect, disconnect }, not as a plain array.
+function tagList(value: unknown): Tag[] {
+  if (Array.isArray(value)) return value as Tag[];
+  const relation = value as { connect?: unknown; data?: unknown; results?: unknown } | null | undefined;
+  for (const candidate of [relation?.connect, relation?.data, relation?.results]) {
+    if (Array.isArray(candidate)) return candidate as Tag[];
+  }
+  return [];
+}
+
+function tagRelation(tags: Tag[]) {
+  return { connect: tags.map((tag) => (tag.documentId ? { documentId: tag.documentId } : tag.id)), disconnect: [] };
+}
+
 function AiAssistant({ documentId }: { documentId: string }) {
   const { get, post } = useFetchClient();
   const { values, onChange } = useForm('AiAssistant', (form) => ({ values: form.values as ArticleForm, onChange: form.onChange }));
@@ -47,7 +61,7 @@ function AiAssistant({ documentId }: { documentId: string }) {
   const locale = values.locale ?? (new URLSearchParams(window.location.search).get('plugins[i18n][locale]') as 'id' | 'en') ?? 'id';
   const summaryValue = values.summary ?? '';
   const seoValue = `${values.seo?.metaTitle ?? ''}|${values.seo?.metaDescription ?? ''}`;
-  const tagsValue = (values.tags ?? []).map((tag) => tag.documentId ?? tag.id).sort().join('|');
+  const tagsValue = tagList(values.tags).map((tag) => tag.documentId ?? tag.id).sort().join('|');
   const altValue = cover?.alternativeText ?? '';
 
   useEffect(() => {
@@ -77,7 +91,7 @@ function AiAssistant({ documentId }: { documentId: string }) {
   const existingValue = (feature: Feature) => {
     if (feature === 'summary') return summaryValue;
     if (feature === 'seo') return seoValue.replace('|', '');
-    if (feature === 'tags') return values.tags ?? [];
+    if (feature === 'tags') return tagList(values.tags);
     if (feature === 'alt-text') return altValue;
     return '';
   };
@@ -106,7 +120,7 @@ function AiAssistant({ documentId }: { documentId: string }) {
         onChange('seo.metaDescription', result.metaDescription);
       } else if (feature === 'tags') {
         generated.current.tags = (result.tags ?? []).map((tag) => tag.documentId ?? tag.id).sort().join('|');
-        onChange('tags', result.tags);
+        onChange('tags', tagRelation(result.tags ?? []));
       } else if (feature === 'alt-text') {
         generated.current['alt-text'] = result.alternativeText ?? '';
         onChange('cover.alternativeText', result.alternativeText);

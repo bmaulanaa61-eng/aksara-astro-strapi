@@ -1,6 +1,7 @@
 import type { StrapiApp } from '@strapi/strapi/admin';
 import type { ContentManagerPlugin } from '@strapi/content-manager/strapi-admin';
 import { AiAssistantPanel } from './components/AiAssistantPanel';
+import './styles.css';
 
 export default {
   config: { locales: ['id', 'en'] },
