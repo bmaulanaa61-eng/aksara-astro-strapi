@@ -1,4 +1,4 @@
----
+﻿---
 import { Image } from 'astro:assets';
 import webDesign from '../assets/service-web-design.png';
 import astroStrapi from '../assets/service-astro-strapi.png';
@@ -6,7 +6,8 @@ import bilingual from '../assets/service-bilingual-content.png';
 import type { Locale, Service } from '../lib/types'; import { copy } from '../lib/i18n'; import { entryPath } from '../lib/paths';
 interface Props { item: Service; locale: Locale } const { item, locale } = Astro.props;
 const symbols: Record<string,string>={design:'✦',engineering:'⌁',content:'¶',seo:'↗',brand:'A',support:'+'};
+const sys = item.icon === 'engineering' ? 'SYS / BUILD' : item.icon === 'content' ? 'SYS / CONTENT' : 'SYS / UI';
 const art = item.icon === 'engineering' ? astroStrapi : item.icon === 'content' ? bilingual : webDesign;
 ---
-<article class="card"><div class="card-art"><Image src={art} alt={`Ilustrasi layanan ${item.title}`} widths={[360,540]} sizes="(max-width: 800px) 100vw, 33vw" loading="lazy"/></div><div class="meta">{symbols[item.icon] || '•'} &nbsp; {String(item.order).padStart(2,'0')}</div><h3>{item.title}</h3><p>{item.summary}</p><a aria-label={`${copy[locale].readMore}: ${item.title}`} href={entryPath(locale,'service',item.slug)}>{copy[locale].readMore} <span aria-hidden="true">→</span></a></article>
-<style>.card-art{height:8.5rem;margin:-2rem -2rem 1.5rem;border-bottom:1px solid var(--line);overflow:hidden;background:#eef2f1}.card-art :global(img){width:100%;height:100%;object-fit:cover}a{margin-top:1rem;font-weight:600}.meta{font-size:1.4rem!important;color:var(--clay)}</style>
+<article class="card"><div class="card-art"><Image src={art} alt={`Ilustrasi layanan ${item.title}`} widths={[360,540]} sizes="(max-width: 800px) 100vw, 33vw" loading="lazy"/></div><div class="meta">{symbols[item.icon] || '•'} &nbsp; {String(item.order).padStart(2,'0')}</div><p class="sys">{sys}</p><h3>{item.title}</h3><p>{item.summary}</p><a aria-label={`${copy[locale].readMore}: ${item.title}`} href={entryPath(locale,'service',item.slug)}>{copy[locale].readMore} <span aria-hidden="true">→</span></a></article>
+<style>.card-art{height:8.5rem;margin:-2rem -2rem 1.5rem;border-bottom:1px solid var(--line);overflow:hidden;background:#eef2f1}.card-art :global(img){width:100%;height:100%;object-fit:cover}a{margin-top:1rem;font-weight:600}.meta{font-family:var(--font-mono);font-size:.8rem!important;letter-spacing:.1em;color:var(--clay)}.sys{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.14em;color:var(--muted);margin:.2rem 0 .4rem}</style>
