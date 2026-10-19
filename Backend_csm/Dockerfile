@@ -16,10 +16,6 @@ FROM node:24.19-bookworm-slim AS runtime
 WORKDIR /opt/app
 ENV NODE_ENV=production
 COPY --from=build --chown=node:node /opt/app ./
-# Local plugins are loaded from the app path; keep their compiled server and entry beside src.
-COPY --from=build --chown=node:node /opt/app/dist/src/plugins ./src/plugins
-# Compiled plugin controllers require the shared helpers through src/utils.
-COPY --from=build --chown=node:node /opt/app/dist/src/utils ./src/utils
 USER node
 EXPOSE 1337
 HEALTHCHECK --interval=10s --timeout=5s --start-period=60s --retries=12 \
