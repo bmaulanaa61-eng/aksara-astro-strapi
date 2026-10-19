@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_shared_links",
+  "info": {
+    "displayName": "Link",
+    "description": "Navigation or footer link"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true,
+      "maxLength": 80
+    },
+    "url": {
+      "type": "string",
+      "required": true,
+      "maxLength": 2048
+    },
+    "openInNewTab": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_shared_buttons",
+  "info": {
+    "displayName": "Button",
+    "description": "Call-to-action link with a visual style"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true,
+      "maxLength": 80
+    },
+    "url": {
+      "type": "string",
+      "required": true,
+      "maxLength": 2048
+    },
+    "style": {
+      "type": "enumeration",
+      "enum": ["primary", "secondary", "text"],
+      "default": "primary",
+      "required": true
+    },
+    "openInNewTab": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    }
+  }
+}

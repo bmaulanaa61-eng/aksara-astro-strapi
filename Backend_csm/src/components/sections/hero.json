@@ -1,0 +1,43 @@
+{
+  "collectionName": "components_sections_heroes",
+  "info": {
+    "displayName": "Hero",
+    "description": "Primary page introduction with optional CTAs"
+  },
+  "options": {},
+  "attributes": {
+    "eyebrow": {
+      "type": "string",
+      "required": false,
+      "maxLength": 80
+    },
+    "heading": {
+      "type": "string",
+      "required": true,
+      "maxLength": 160
+    },
+    "subheading": {
+      "type": "text",
+      "required": false,
+      "maxLength": 400
+    },
+    "primaryCta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.button",
+      "required": false
+    },
+    "secondaryCta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.button",
+      "required": false
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    }
+  }
+}

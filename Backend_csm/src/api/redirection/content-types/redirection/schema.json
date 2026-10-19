@@ -1,0 +1,62 @@
+{
+  "kind": "collectionType",
+  "collectionName": "redirections",
+  "info": {
+    "singularName": "redirection",
+    "pluralName": "redirections",
+    "displayName": "Redirection",
+    "description": "Old path to new path mapping per locale"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "fromPath": {
+      "type": "string",
+      "required": true,
+      "maxLength": 512,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "toPath": {
+      "type": "string",
+      "required": true,
+      "maxLength": 512,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "statusCode": {
+      "type": "integer",
+      "required": true,
+      "default": 301,
+      "min": 301,
+      "max": 302,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
+    "isActive": {
+      "type": "boolean",
+      "required": true,
+      "default": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_sections_ctas",
+  "info": {
+    "displayName": "CTA",
+    "description": "Call-to-action band with one or two buttons"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "required": true,
+      "maxLength": 160
+    },
+    "body": {
+      "type": "text",
+      "required": false,
+      "maxLength": 400
+    },
+    "primaryCta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.button",
+      "required": true
+    },
+    "secondaryCta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.button",
+      "required": false
+    }
+  }
+}

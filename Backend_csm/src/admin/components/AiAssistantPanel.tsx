@@ -142,4 +142,3 @@ export const AiAssistantPanel: PanelComponent = ({ model, documentId }) => {
   if (model !== 'api::article.article' || !documentId) return null;
   return { title: 'AI Assistant', content: <AiAssistant documentId={documentId} /> };
 };
-
