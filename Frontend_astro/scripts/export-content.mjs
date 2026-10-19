@@ -17,6 +17,22 @@ async function request(path, params = {}) {
 const media = (item) => item ? { url: item.url.startsWith('http') ? item.url : `${base}${item.url}`, alternativeText: item.alternativeText || '', width: item.width, height: item.height } : null;
 const seo = (item = {}) => ({ metaTitle: item.metaTitle || '', metaDescription: item.metaDescription || '', metaRobots: item.metaRobots || 'index,follow', canonicalURL: item.canonicalURL || undefined });
 const relationIds = (items = []) => items.map((item) => item.documentId);
+
+// Strapi's wildcard populate stops at the dynamic zone, so nested components and relations need explicit keys.
+const pagePopulate = {
+  'populate[seo][fields][0]': 'metaTitle',
+  'populate[seo][fields][1]': 'metaDescription',
+  'populate[seo][fields][2]': 'metaRobots',
+  'populate[seo][fields][3]': 'canonicalURL',
+  'populate[sections][on][sections.hero][populate]': '*',
+  'populate[sections][on][sections.cta][populate]': '*',
+  'populate[sections][on][sections.stats][populate]': '*',
+  'populate[sections][on][sections.faq][populate]': '*',
+  'populate[sections][on][sections.rich-text][populate]': '*',
+  'populate[sections][on][sections.services-grid][populate][services][fields][0]': 'documentId',
+  'populate[sections][on][sections.featured-projects][populate][projects][fields][0]': 'documentId',
+  'populate[sections][on][sections.latest-articles][populate][articles][fields][0]': 'documentId',
+};
 const normalizeSection = (section) => {
   if (section.__component === 'sections.services-grid') return { ...section, serviceIds: relationIds(section.services), services: undefined };
   if (section.__component === 'sections.featured-projects') return { ...section, projectIds: relationIds(section.projects), projects: undefined };
@@ -28,7 +44,7 @@ const normalizeSection = (section) => {
 async function exportLocale(locale) {
   const common = { locale, status: 'published', populate: '*' };
   const [global, pages, services, projects, articles, tags] = await Promise.all([
-    request('global', { locale, populate: '*' }), request('pages', common), request('services', common),
+    request('global', { locale, populate: '*' }), request('pages', { locale, status: 'published', ...pagePopulate }), request('services', common),
     request('projects', common), request('articles', common), request('tags', { locale, populate: '*' }),
   ]);
   return {
