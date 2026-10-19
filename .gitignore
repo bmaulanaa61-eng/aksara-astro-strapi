@@ -31,6 +31,12 @@ Backend_csm/public/uploads/*
 npm-debug.log*
 logs/
 
+# Local verification scratch
+*.tmp.*
+*.out.txt
+snapshot.*.json
+compose-state.txt
+
 # OS / Editor
 .DS_Store
 Thumbs.db
