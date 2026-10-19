@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_sections_services_grids",
+  "info": {
+    "displayName": "Services Grid",
+    "description": "Heading plus curated or automatic services list"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "required": true,
+      "maxLength": 160
+    },
+    "intro": {
+      "type": "text",
+      "required": false,
+      "maxLength": 400
+    },
+    "services": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::service.service"
+    },
+    "limit": {
+      "type": "integer",
+      "required": true,
+      "default": 6,
+      "min": 1,
+      "max": 12
+    }
+  }
+}

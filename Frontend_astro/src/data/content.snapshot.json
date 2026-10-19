@@ -1,1 +1,619 @@
-﻿{"generatedAt":"2026-10-16T00:00:00.000Z","locales":{"id":{"global":{"siteName":"Aksara","tagline":"Studio web fiktif untuk portofolio Astro + Strapi","primaryNav":[{"label":"Layanan","url":"/layanan"},{"label":"Proyek","url":"/proyek"},{"label":"Wawasan","url":"/wawasan"}],"footerNav":[{"label":"Portofolio pemilik","url":"https://datalabs-systems.web.app","openInNewTab":true}],"footerNote":"Proyek portofolio. Aksara adalah perusahaan fiktif.","defaultSeo":{"metaTitle":"Aksara — studio web fiktif","metaDescription":"Company profile bilingual dan Insights dengan Strapi dan Astro."}},"pages":[{"documentId":"page-home","slug":"home","title":"Beranda","seo":{"metaTitle":"Aksara — beranda","metaDescription":"Studio web fiktif Aksara: layanan, proyek, dan wawasan bilingual."},"sections":[{"__component":"sections.hero","eyebrow":"Studio web fiktif","heading":"Website agency yang jujur soal stack dan batasan hosting","subheading":"Aksara adalah proyek portofolio: Strapi lokal, situs Astro static, konten bilingual ID/EN.","primaryCta":{"label":"Lihat layanan","url":"/layanan","style":"primary"},"secondaryCta":{"label":"Baca wawasan","url":"/wawasan","style":"secondary"}},{"__component":"sections.services-grid","heading":"Layanan","intro":"Tiga paket untuk model konten yang fokus.","serviceIds":["service-design","service-dev","service-content"],"limit":3},{"__component":"sections.featured-projects","heading":"Proyek unggulan","intro":"Case study fiktif yang menjelaskan keputusan teknis.","projectIds":["project-aksara"],"limit":1},{"__component":"sections.stats","heading":"Fakta proyek","items":[{"value":"2","label":"Locale konten","context":"Indonesia dan Inggris"},{"value":"8","label":"Section Page","context":"Dynamic zone terbatas"},{"value":"0","label":"Server CMS online","context":"Situs memakai snapshot"}]},{"__component":"sections.latest-articles","heading":"Wawasan terbaru","intro":"Catatan tentang konten dan build static.","articleIds":["article-snapshot"],"limit":1},{"__component":"sections.faq","heading":"Pertanyaan umum","items":[{"question":"Apakah Aksara perusahaan nyata?","answer":"\u003cp\u003eBukan. Aksara adalah studio fiktif untuk portofolio.\u003c/p\u003e"},{"question":"Mengapa Strapi tidak online?","answer":"\u003cp\u003eWebsite dibangun dari snapshot konten agar hosting tetap gratis.\u003c/p\u003e"}]},{"__component":"sections.cta","heading":"Clone dan coba stack-nya","body":"Jalankan dengan Docker Compose.","primaryCta":{"label":"Buka repositori","url":"https://github.com/bmaulanaa61-eng/aksara-astro-strapi","style":"primary","openInNewTab":true}}]}],"services":[{"documentId":"service-design","slug":"desain-web","title":"Desain web","summary":"Tata visual yang jelas untuk company profile dan landing page.","body":"\u003ch2\u003eSistem visual yang bekerja\u003c/h2\u003e\u003cp\u003eFokus pada hierarki tipografi, kontras nyaman, dan komponen reusable.\u003c/p\u003e","icon":"design","order":1,"seo":{"metaTitle":"Desain web — Aksara","metaDescription":"Desain web dengan fokus keterbacaan dan konsistensi."}},{"documentId":"service-dev","slug":"pengembangan-astro-strapi","title":"Pengembangan Astro + Strapi","summary":"Website static dari snapshot CMS dengan model data yang jelas.","body":"\u003ch2\u003eCMS lokal, website tersedia\u003c/h2\u003e\u003cp\u003eAstro untuk publik dan Strapi untuk editorial. Snapshot membuat CI mandiri.\u003c/p\u003e","icon":"engineering","order":2,"seo":{"metaTitle":"Astro + Strapi — Aksara","metaDescription":"Integrasi Astro dan Strapi untuk website static."}},{"documentId":"service-content","slug":"konten-bilingual","title":"Konten bilingual ID/EN","summary":"Locale, slug, dan SEO multibahasa sejak model konten.","body":"\u003ch2\u003eDua bahasa, satu struktur\u003c/h2\u003e\u003cp\u003eCanonical dan hreflang ditangani website.\u003c/p\u003e","icon":"content","order":3,"seo":{"metaTitle":"Konten bilingual — Aksara","metaDescription":"Pemodelan konten Indonesia dan Inggris."}}],"projects":[{"documentId":"project-aksara","slug":"studio-aksara-demo","title":"Situs demo studio Aksara","client":"Aksara (portfolio project)","summary":"Company profile fiktif dengan Strapi lokal dan Astro static.","body":"\u003ch2\u003eTantangan\u003c/h2\u003e\u003cp\u003eEditorial nyata tanpa CMS publik.\u003c/p\u003e\u003ch2\u003eKeputusan\u003c/h2\u003e\u003cp\u003eModel bilingual dan CI dari snapshot yang dapat direview.\u003c/p\u003e","year":2026,"featured":true,"facts":[{"label":"Stack","value":"Astro + Strapi 5"},{"label":"Locale","value":"id, en"},{"label":"Hosting","value":"Cloudflare Pages (M4)"}],"serviceIds":["service-dev","service-content"],"cover":null,"seo":{"metaTitle":"Situs demo Aksara","metaDescription":"Case study dengan Strapi lokal dan Astro static."}}],"articles":[{"documentId":"article-snapshot","slug":"mengapa-snapshot-konten","title":"Mengapa website Astro memakai snapshot konten Strapi","summary":"Snapshot JSON membuat build otomatis tanpa CMS online.","content":"\u003cp\u003eStrapi tetap lokal. Website dibangun dari JSON agar CI tidak bergantung pada laptop.\u003c/p\u003e\u003ch2\u003eSatu kontrak data\u003c/h2\u003e\u003cp\u003eAstro membaca struktur yang sama saat dev dan produksi.\u003c/p\u003e\u003ch2\u003eBuild yang dapat diulang\u003c/h2\u003e\u003cp\u003eSnapshot direview bersama source code.\u003c/p\u003e","publishedAt":"2026-10-15T00:00:00.000Z","cover":null,"seo":{"metaTitle":"Snapshot Strapi untuk Astro","metaDescription":"Build Astro tanpa Strapi online."},"author":{"documentId":"author-editorial","slug":"aksara-editorial","name":"Aksara Editorial","role":"Tim editorial","bio":"Menulis tentang CMS dan konten bilingual.","avatar":null},"tags":[{"documentId":"tag-astro","slug":"astro","name":"Astro"},{"documentId":"tag-strapi","slug":"strapi","name":"Strapi"},{"documentId":"tag-seo","slug":"seo","name":"SEO"}],"aiSummaryStatus":"manual"}],"tags":[{"documentId":"tag-astro","slug":"astro","name":"Astro"},{"documentId":"tag-strapi","slug":"strapi","name":"Strapi"},{"documentId":"tag-seo","slug":"seo","name":"SEO"}]},"en":{"global":{"siteName":"Aksara","tagline":"A fictional web studio for an Astro + Strapi portfolio","primaryNav":[{"url":"/en/services","label":"Services"},{"url":"/en/work","label":"Work"},{"url":"/en/insights","label":"Insights"}],"footerNav":[{"label":"Owner portfolio","openInNewTab":true,"url":"https://datalabs-systems.web.app"}],"footerNote":"Portfolio project. Aksara is a fictional company.","defaultSeo":{"metaTitle":"Aksara — fictional web studio","metaDescription":"A bilingual company profile and Insights site built with Strapi and Astro."}},"pages":[{"documentId":"page-home","slug":"home","title":"Home","seo":{"metaTitle":"Aksara — home","metaDescription":"A fictional web studio with bilingual services, work, and insights."},"sections":[{"__component":"sections.hero","eyebrow":"Fictional web studio","heading":"An agency site that is honest about its stack and hosting limits","subheading":"A portfolio project with local Strapi, static Astro, and bilingual content.","primaryCta":{"label":"View services","url":"/en/services","style":"primary"},"secondaryCta":{"label":"Read insights","url":"/en/insights","style":"secondary"}},{"__component":"sections.services-grid","heading":"Services","intro":"Three focused offerings for a bounded content model.","serviceIds":["service-design","service-dev","service-content"],"limit":3},{"__component":"sections.featured-projects","heading":"Featured work","intro":"A fictional case study explaining technical decisions.","projectIds":["project-aksara"],"limit":1},{"__component":"sections.stats","heading":"Project facts","items":[{"value":"2","label":"Content locales","context":"Indonesian and English"},{"value":"8","label":"Page sections","context":"Bounded dynamic zone"},{"value":"0","label":"Online CMS servers","context":"The site uses a snapshot"}]},{"__component":"sections.latest-articles","heading":"Latest insights","intro":"Notes on content and static builds.","articleIds":["article-snapshot"],"limit":1},{"__component":"sections.faq","heading":"Frequently asked questions","items":[{"question":"Is Aksara a real company?","answer":"\u003cp\u003eNo. Aksara is a fictional studio for a portfolio.\u003c/p\u003e"},{"question":"Why is Strapi not online?","answer":"\u003cp\u003eThe site uses a snapshot to keep hosting free.\u003c/p\u003e"}]},{"__component":"sections.cta","heading":"Clone and try the stack","body":"Run it with Docker Compose.","primaryCta":{"label":"Open repository","url":"https://github.com/bmaulanaa61-eng/aksara-astro-strapi","style":"primary","openInNewTab":true}}]}],"services":[{"documentId":"service-design","slug":"desain-web","title":"Web design","summary":"Clear visual systems for agency profiles and landing pages.","body":"\u003ch2\u003eA visual system that works\u003c/h2\u003e\u003cp\u003eFocused typography, comfortable contrast, and reusable components.\u003c/p\u003e","icon":"design","order":1,"seo":{"metaTitle":"Web design — Aksara","metaDescription":"Clear visual systems for agency profiles and landing pages."}},{"documentId":"service-dev","slug":"pengembangan-astro-strapi","title":"Astro + Strapi development","summary":"Static websites built from a clear CMS snapshot.","body":"\u003ch2\u003eLocal CMS, available website\u003c/h2\u003e\u003cp\u003eAstro for the public site and Strapi for editorial work.\u003c/p\u003e","icon":"engineering","order":2,"seo":{"metaTitle":"Astro + Strapi development — Aksara","metaDescription":"Static websites built from a clear CMS snapshot."}},{"documentId":"service-content","slug":"konten-bilingual","title":"Bilingual ID/EN content","summary":"Locales, slugs, and multilingual SEO from the content model.","body":"\u003ch2\u003eTwo languages, one structure\u003c/h2\u003e\u003cp\u003eThe website handles canonical and hreflang metadata.\u003c/p\u003e","icon":"content","order":3,"seo":{"metaTitle":"Bilingual ID/EN content — Aksara","metaDescription":"Locales, slugs, and multilingual SEO from the content model."}}],"projects":[{"documentId":"project-aksara","slug":"studio-aksara-demo","title":"Aksara studio demo site","client":"Aksara (portfolio project)","summary":"A fictional company profile using local Strapi and static Astro.","body":"\u003ch2\u003eThe challenge\u003c/h2\u003e\u003cp\u003eReal editorial workflow without a public CMS.\u003c/p\u003e\u003ch2\u003eThe decision\u003c/h2\u003e\u003cp\u003eA bilingual model and CI based on a reviewable snapshot.\u003c/p\u003e","year":2026,"featured":true,"facts":[{"label":"Stack","value":"Astro + Strapi 5"},{"label":"Locale","value":"id, en"},{"label":"Hosting","value":"Cloudflare Pages (M4)"}],"serviceIds":["service-dev","service-content"],"cover":null,"seo":{"metaTitle":"Aksara demo site","metaDescription":"A fictional company profile using local Strapi and static Astro."}}],"articles":[{"documentId":"article-snapshot","slug":"mengapa-snapshot-konten","title":"Why the Astro site uses a Strapi content snapshot","summary":"A JSON snapshot keeps builds automated without an online CMS.","content":"\u003cp\u003eStrapi stays local. The site builds from JSON so CI does not depend on a laptop.\u003c/p\u003e\u003ch2\u003eOne data contract\u003c/h2\u003e\u003cp\u003eAstro reads the same shape in development and production.\u003c/p\u003e\u003ch2\u003eRepeatable builds\u003c/h2\u003e\u003cp\u003eThe snapshot is reviewed with the source code.\u003c/p\u003e","publishedAt":"2026-10-15T00:00:00.000Z","cover":null,"seo":{"metaTitle":"Strapi snapshots for Astro","metaDescription":"A JSON snapshot keeps builds automated without an online CMS."},"author":{"documentId":"author-editorial","slug":"aksara-editorial","name":"Aksara Editorial","role":"Editorial team","bio":"Writes about headless CMS and bilingual content.","avatar":null},"tags":[{"documentId":"tag-astro","slug":"astro","name":"Astro"},{"documentId":"tag-strapi","slug":"strapi","name":"Strapi"},{"documentId":"tag-seo","slug":"seo","name":"SEO"}],"aiSummaryStatus":"manual"}],"tags":[{"documentId":"tag-astro","slug":"astro","name":"Astro"},{"documentId":"tag-strapi","slug":"strapi","name":"Strapi"},{"documentId":"tag-seo","slug":"seo","name":"SEO"}]}}}
+{
+  "generatedAt": "2026-10-19T16:20:13.827Z",
+  "locales": {
+    "id": {
+      "global": {
+        "siteName": "Aksara",
+        "tagline": "Studio web fiktif untuk portofolio Astro + Strapi",
+        "primaryNav": [
+          {
+            "id": 1,
+            "label": "Layanan",
+            "url": "/layanan",
+            "openInNewTab": false
+          },
+          {
+            "id": 2,
+            "label": "Proyek",
+            "url": "/proyek",
+            "openInNewTab": false
+          },
+          {
+            "id": 3,
+            "label": "Wawasan",
+            "url": "/wawasan",
+            "openInNewTab": false
+          }
+        ],
+        "footerNav": [
+          {
+            "id": 4,
+            "label": "Portofolio pemilik",
+            "url": "https://datalabs-systems.web.app",
+            "openInNewTab": true
+          }
+        ],
+        "footerNote": "Proyek portofolio. Aksara adalah perusahaan fiktif — bukan badan usaha nyata.",
+        "defaultSeo": {
+          "metaTitle": "Aksara — studio web fiktif",
+          "metaDescription": "Company profile bilingual dan blog Insights, dikelola dengan Strapi dan dibangun sebagai situs Astro static.",
+          "metaRobots": "index,follow"
+        }
+      },
+      "pages": [
+        {
+          "documentId": "gkf2br03ueiv3fsz1z7dsf33",
+          "slug": "home",
+          "title": "Beranda",
+          "sections": [
+            {
+              "id": 17,
+              "eyebrow": "Studio web independen",
+              "heading": "Studio web untuk situs cepat, bilingual, dan mudah dikelola",
+              "subheading": "Aksara membangun company profile dan konten editorial dengan Astro + Strapi: desain editorial, performa static, dan konten ID/EN yang rapi.",
+              "primaryCta": {
+                "id": 49,
+                "label": "Lihat layanan",
+                "url": "/layanan",
+                "style": "primary",
+                "openInNewTab": false
+              },
+              "secondaryCta": {
+                "id": 51,
+                "label": "Baca wawasan",
+                "url": "/wawasan",
+                "style": "secondary",
+                "openInNewTab": false
+              },
+              "image": null,
+              "__component": "sections.hero"
+            },
+            {
+              "id": 17,
+              "heading": "Layanan",
+              "intro": "Tiga paket yang cukup untuk mendemokan model konten tanpa melebar ke page builder tanpa batas.",
+              "limit": 3,
+              "__component": "sections.services-grid",
+              "serviceIds": [
+                "sotw83dnhww2aqo4tiojfs9l",
+                "zt4ipi47b5sni2t9w1sfmxmg",
+                "o3374cwzpk1t6bjpbp8hn42p"
+              ]
+            },
+            {
+              "id": 17,
+              "heading": "Proyek unggulan",
+              "intro": "Case study fiktif yang menjelaskan keputusan teknis, bukan klaim hasil klien.",
+              "limit": 1,
+              "__component": "sections.featured-projects",
+              "projectIds": [
+                "ss6hk20mv2r1onvv6nlr9ive"
+              ]
+            },
+            {
+              "id": 17,
+              "heading": "Fakta proyek",
+              "items": [
+                {
+                  "id": 49,
+                  "value": "2",
+                  "label": "Locale konten",
+                  "context": "Indonesia default, Inggris sekunder"
+                },
+                {
+                  "id": 50,
+                  "value": "8",
+                  "label": "Section Page",
+                  "context": "Dynamic zone terbatas di schema"
+                },
+                {
+                  "id": 51,
+                  "value": "0",
+                  "label": "Server CMS online",
+                  "context": "Strapi tetap lokal; situs dari snapshot"
+                }
+              ],
+              "__component": "sections.stats"
+            },
+            {
+              "id": 17,
+              "heading": "Wawasan terbaru",
+              "intro": "Catatan editorial tentang alur konten dan build static.",
+              "limit": 1,
+              "__component": "sections.latest-articles",
+              "articleIds": [
+                "bow499hrrdi0zly3scmti46v"
+              ]
+            },
+            {
+              "id": 17,
+              "heading": "Pertanyaan umum",
+              "intro": null,
+              "items": [
+                {
+                  "id": 33,
+                  "question": "Apakah Aksara perusahaan nyata?",
+                  "answer": "<p>Bukan. Aksara adalah studio fiktif untuk portofolio lamaran. Label ini juga muncul di footer situs.</p>"
+                },
+                {
+                  "id": 34,
+                  "question": "Mengapa Strapi tidak di-deploy?",
+                  "answer": "<p>Agar hosting tetap gratis tanpa kartu kredit. Website dibangun dari snapshot konten; CMS cukup berjalan di laptop atau Docker Compose.</p>"
+                }
+              ],
+              "__component": "sections.faq"
+            },
+            {
+              "id": 17,
+              "heading": "Clone dan coba stack-nya",
+              "body": "Pakai Docker Compose dari README untuk menjalankan Strapi + PostgreSQL dengan seed data.",
+              "primaryCta": {
+                "id": 50,
+                "label": "Buka repositori",
+                "url": "https://github.com/bmaulanaa61-eng/aksara-astro-strapi",
+                "style": "primary",
+                "openInNewTab": true
+              },
+              "secondaryCta": null,
+              "__component": "sections.cta"
+            }
+          ],
+          "seo": {
+            "metaTitle": "Studio Web Astro + Strapi | Aksara",
+            "metaDescription": "Aksara membangun situs company profile cepat dan bilingual ID/EN dengan Astro + Strapi. Desain editorial, performa static, konten rapi.",
+            "metaRobots": "index,follow"
+          }
+        }
+      ],
+      "services": [
+        {
+          "documentId": "sotw83dnhww2aqo4tiojfs9l",
+          "slug": "desain-web",
+          "title": "Desain web",
+          "summary": "Tata visual yang jelas untuk company profile dan landing page agency.",
+          "body": "<p>Fokus pada hierarki tipografi, kontras yang nyaman dibaca, dan komponen yang bisa dipakai ulang di beberapa halaman.</p>",
+          "icon": "design",
+          "order": 1,
+          "seo": {
+            "metaTitle": "Desain web — Aksara",
+            "metaDescription": "Layanan desain web untuk situs agency dengan fokus keterbacaan dan konsistensi visual.",
+            "metaRobots": "index,follow"
+          }
+        },
+        {
+          "documentId": "zt4ipi47b5sni2t9w1sfmxmg",
+          "slug": "pengembangan-astro-strapi",
+          "title": "Pengembangan Astro + Strapi",
+          "summary": "Website static dari snapshot konten CMS, dengan model data yang bisa di-query dengan jelas.",
+          "body": "<p>Stack Astro untuk situs publik dan Strapi untuk editorial. Konten diekspor ke snapshot agar CI bisa membangun tanpa server CMS online.</p>",
+          "icon": "engineering",
+          "order": 2,
+          "seo": {
+            "metaTitle": "Pengembangan Astro + Strapi — Aksara",
+            "metaDescription": "Integrasi Astro dan Strapi untuk website static yang diisi dari CMS lokal.",
+            "metaRobots": "index,follow"
+          }
+        },
+        {
+          "documentId": "o3374cwzpk1t6bjpbp8hn42p",
+          "slug": "konten-bilingual",
+          "title": "Konten bilingual ID/EN",
+          "summary": "Struktur locale, slug lokal, dan SEO multibahasa sejak model konten.",
+          "body": "<p>Locale default Indonesia, pasangan Inggris terhubung sebagai localization. Canonical dan hreflang disiapkan di lapisan website.</p>",
+          "icon": "content",
+          "order": 3,
+          "seo": {
+            "metaTitle": "Konten bilingual ID/EN — Aksara",
+            "metaDescription": "Pemodelan konten bilingual Indonesia dan Inggris untuk situs agency.",
+            "metaRobots": "index,follow"
+          }
+        }
+      ],
+      "projects": [
+        {
+          "documentId": "ss6hk20mv2r1onvv6nlr9ive",
+          "slug": "studio-aksara-demo",
+          "title": "Situs demo studio Aksara",
+          "client": "Aksara (portfolio project)",
+          "summary": "Company profile fiktif yang memakai Strapi lokal, snapshot konten, dan situs Astro static.",
+          "body": "<p>Proyek ini menunjukkan content model bilingual, permission Public read-only, dan alur CI yang membangun website dari snapshot — bukan dari CMS yang harus online.</p>",
+          "year": 2026,
+          "featured": true,
+          "facts": [
+            {
+              "id": 43,
+              "label": "Stack",
+              "value": "Astro + Strapi 5 + PostgreSQL"
+            },
+            {
+              "id": 44,
+              "label": "Locale",
+              "value": "id (default), en"
+            },
+            {
+              "id": 45,
+              "label": "Hosting situs",
+              "value": "Cloudflare Pages (rencana M4)"
+            }
+          ],
+          "serviceIds": [
+            "zt4ipi47b5sni2t9w1sfmxmg",
+            "o3374cwzpk1t6bjpbp8hn42p"
+          ],
+          "cover": null,
+          "seo": {
+            "metaTitle": "Situs demo studio Aksara",
+            "metaDescription": "Case study portofolio: company profile fiktif dengan Strapi lokal dan Astro static.",
+            "metaRobots": "index,follow"
+          }
+        }
+      ],
+      "articles": [
+        {
+          "documentId": "bow499hrrdi0zly3scmti46v",
+          "slug": "mengapa-snapshot-konten",
+          "title": "Mengapa website Astro memakai snapshot konten Strapi",
+          "summary": "CI tidak bisa mengakses Strapi di laptop. Snapshot JSON membuat build tetap otomatis tanpa server CMS online.",
+          "content": "<p>Untuk portofolio Aksara, Strapi tetap lokal. Website dibangun dari file JSON hasil export supaya GitHub Actions tidak bergantung pada mesin pengembang yang menyala.</p><p>Saat pengembangan lokal, Astro masih boleh membaca Strapi langsung. Yang penting: kontrak data antara CMS dan halaman tetap sama.</p>",
+          "publishedAt": "2026-10-19T13:57:37.061Z",
+          "cover": null,
+          "seo": {
+            "metaTitle": "Snapshot konten Strapi untuk Astro",
+            "metaDescription": "Alasan memakai snapshot JSON agar CI bisa build website tanpa Strapi online.",
+            "metaRobots": "index,follow"
+          },
+          "author": {
+            "documentId": "ny1jm3byd9dqz6vuv31hec82",
+            "slug": "aksara-editorial",
+            "name": "Aksara Editorial",
+            "role": "Tim editorial",
+            "bio": "Menulis catatan praktik seputar website agency, CMS headless, dan alur konten bilingual.",
+            "avatar": null
+          },
+          "tags": [
+            {
+              "documentId": "y2wv059iv7grceyifykr5qw0",
+              "slug": "astro",
+              "name": "Astro"
+            },
+            {
+              "documentId": "x7oqtwdmuw0xcbwh2878pb9j",
+              "slug": "strapi",
+              "name": "Strapi"
+            },
+            {
+              "documentId": "jk21unw8mtuc4im7dn1272n0",
+              "slug": "seo",
+              "name": "SEO"
+            }
+          ],
+          "aiSummaryStatus": "manual"
+        }
+      ],
+      "tags": [
+        {
+          "documentId": "y2wv059iv7grceyifykr5qw0",
+          "slug": "astro",
+          "name": "Astro"
+        },
+        {
+          "documentId": "x7oqtwdmuw0xcbwh2878pb9j",
+          "slug": "strapi",
+          "name": "Strapi"
+        },
+        {
+          "documentId": "jk21unw8mtuc4im7dn1272n0",
+          "slug": "seo",
+          "name": "SEO"
+        }
+      ]
+    },
+    "en": {
+      "global": {
+        "siteName": "Aksara",
+        "tagline": "A fictional web studio for an Astro + Strapi portfolio",
+        "primaryNav": [
+          {
+            "id": 5,
+            "label": "Services",
+            "url": "/en/services",
+            "openInNewTab": false
+          },
+          {
+            "id": 6,
+            "label": "Work",
+            "url": "/en/work",
+            "openInNewTab": false
+          },
+          {
+            "id": 7,
+            "label": "Insights",
+            "url": "/en/insights",
+            "openInNewTab": false
+          }
+        ],
+        "footerNav": [
+          {
+            "id": 8,
+            "label": "Owner portfolio",
+            "url": "https://datalabs-systems.web.app",
+            "openInNewTab": true
+          }
+        ],
+        "footerNote": "Portfolio project. Aksara is a fictional company — not a real business.",
+        "defaultSeo": {
+          "metaTitle": "Aksara — fictional web studio",
+          "metaDescription": "A bilingual company profile and Insights blog managed in Strapi and built as a static Astro site.",
+          "metaRobots": "index,follow"
+        }
+      },
+      "pages": [
+        {
+          "documentId": "gkf2br03ueiv3fsz1z7dsf33",
+          "slug": "home",
+          "title": "Home",
+          "sections": [
+            {
+              "id": 18,
+              "eyebrow": "Independent web studio",
+              "heading": "A web studio for fast, bilingual sites you can manage",
+              "subheading": "Aksara builds company profiles and editorial content with Astro + Strapi: editorial design, static performance, and tidy ID/EN content.",
+              "primaryCta": {
+                "id": 52,
+                "label": "View services",
+                "url": "/en/services",
+                "style": "primary",
+                "openInNewTab": false
+              },
+              "secondaryCta": {
+                "id": 54,
+                "label": "Read insights",
+                "url": "/en/insights",
+                "style": "secondary",
+                "openInNewTab": false
+              },
+              "image": null,
+              "__component": "sections.hero"
+            },
+            {
+              "id": 18,
+              "heading": "Services",
+              "intro": "Three offerings that demonstrate the content model without becoming an unbounded page builder.",
+              "limit": 3,
+              "__component": "sections.services-grid",
+              "serviceIds": [
+                "sotw83dnhww2aqo4tiojfs9l",
+                "zt4ipi47b5sni2t9w1sfmxmg",
+                "o3374cwzpk1t6bjpbp8hn42p"
+              ]
+            },
+            {
+              "id": 18,
+              "heading": "Featured work",
+              "intro": "A fictional case study that explains technical choices, not client outcome claims.",
+              "limit": 1,
+              "__component": "sections.featured-projects",
+              "projectIds": [
+                "ss6hk20mv2r1onvv6nlr9ive"
+              ]
+            },
+            {
+              "id": 18,
+              "heading": "Project facts",
+              "items": [
+                {
+                  "id": 52,
+                  "value": "2",
+                  "label": "Content locales",
+                  "context": "Indonesian default, English secondary"
+                },
+                {
+                  "id": 53,
+                  "value": "8",
+                  "label": "Page sections",
+                  "context": "Bounded dynamic zone in the schema"
+                },
+                {
+                  "id": 54,
+                  "value": "0",
+                  "label": "Online CMS servers",
+                  "context": "Strapi stays local; the site uses a snapshot"
+                }
+              ],
+              "__component": "sections.stats"
+            },
+            {
+              "id": 18,
+              "heading": "Latest insights",
+              "intro": "Editorial notes on content workflow and static builds.",
+              "limit": 1,
+              "__component": "sections.latest-articles",
+              "articleIds": [
+                "bow499hrrdi0zly3scmti46v"
+              ]
+            },
+            {
+              "id": 18,
+              "heading": "FAQ",
+              "intro": null,
+              "items": [
+                {
+                  "id": 35,
+                  "question": "Is Aksara a real company?",
+                  "answer": "<p>No. Aksara is a fictional studio for a job-application portfolio. The same label appears in the site footer.</p>"
+                },
+                {
+                  "id": 36,
+                  "question": "Why is Strapi not deployed?",
+                  "answer": "<p>To keep hosting free without a credit card. The website builds from a content snapshot; the CMS only needs to run on a laptop or via Docker Compose.</p>"
+                }
+              ],
+              "__component": "sections.faq"
+            },
+            {
+              "id": 18,
+              "heading": "Clone and try the stack",
+              "body": "Use Docker Compose from the README to run Strapi + PostgreSQL with seed data.",
+              "primaryCta": {
+                "id": 53,
+                "label": "Open repository",
+                "url": "https://github.com/bmaulanaa61-eng/aksara-astro-strapi",
+                "style": "primary",
+                "openInNewTab": true
+              },
+              "secondaryCta": null,
+              "__component": "sections.cta"
+            }
+          ],
+          "seo": {
+            "metaTitle": "Astro + Strapi Web Studio | Aksara",
+            "metaDescription": "Aksara builds fast, bilingual company sites with Astro + Strapi: editorial design, static performance, and content your team can manage.",
+            "metaRobots": "index,follow"
+          }
+        }
+      ],
+      "services": [
+        {
+          "documentId": "sotw83dnhww2aqo4tiojfs9l",
+          "slug": "desain-web",
+          "title": "Web design",
+          "summary": "Clear visual systems for agency company profiles and landing pages.",
+          "body": "<p>Focus on typographic hierarchy, comfortable contrast, and components reused across pages.</p>",
+          "icon": "design",
+          "order": 1,
+          "seo": {
+            "metaTitle": "Web design — Aksara",
+            "metaDescription": "Web design for agency sites with readable type and consistent visuals.",
+            "metaRobots": "index,follow"
+          }
+        },
+        {
+          "documentId": "zt4ipi47b5sni2t9w1sfmxmg",
+          "slug": "pengembangan-astro-strapi",
+          "title": "Astro + Strapi development",
+          "summary": "Static websites fed by a CMS content snapshot, with a query-friendly data model.",
+          "body": "<p>Astro for the public site and Strapi for editorial work. Content is exported to a snapshot so CI can build without an online CMS.</p>",
+          "icon": "engineering",
+          "order": 2,
+          "seo": {
+            "metaTitle": "Astro + Strapi development — Aksara",
+            "metaDescription": "Astro and Strapi integration for static sites powered by a local CMS.",
+            "metaRobots": "index,follow"
+          }
+        },
+        {
+          "documentId": "o3374cwzpk1t6bjpbp8hn42p",
+          "slug": "konten-bilingual",
+          "title": "Bilingual ID/EN content",
+          "summary": "Locale structure, localized slugs, and multilingual SEO from the content model onward.",
+          "body": "<p>Indonesian is the default locale; English entries link as localizations. Canonical and hreflang are handled in the website layer.</p>",
+          "icon": "content",
+          "order": 3,
+          "seo": {
+            "metaTitle": "Bilingual ID/EN content — Aksara",
+            "metaDescription": "Bilingual Indonesian and English content modeling for agency sites.",
+            "metaRobots": "index,follow"
+          }
+        }
+      ],
+      "projects": [
+        {
+          "documentId": "ss6hk20mv2r1onvv6nlr9ive",
+          "slug": "studio-aksara-demo",
+          "title": "Aksara studio demo site",
+          "client": "Aksara (portfolio project)",
+          "summary": "A fictional company profile using local Strapi, a content snapshot, and a static Astro site.",
+          "body": "<p>This project demonstrates a bilingual content model, read-only Public permissions, and a CI flow that builds the website from a snapshot — not from an always-on CMS.</p>",
+          "year": 2026,
+          "featured": true,
+          "facts": [
+            {
+              "id": 40,
+              "label": "Stack",
+              "value": "Astro + Strapi 5 + PostgreSQL"
+            },
+            {
+              "id": 41,
+              "label": "Locales",
+              "value": "id (default), en"
+            },
+            {
+              "id": 42,
+              "label": "Site hosting",
+              "value": "Cloudflare Pages (planned in M4)"
+            }
+          ],
+          "serviceIds": [
+            "zt4ipi47b5sni2t9w1sfmxmg",
+            "o3374cwzpk1t6bjpbp8hn42p"
+          ],
+          "cover": null,
+          "seo": {
+            "metaTitle": "Aksara studio demo site",
+            "metaDescription": "Portfolio case study: fictional company profile with local Strapi and static Astro.",
+            "metaRobots": "index,follow"
+          }
+        }
+      ],
+      "articles": [
+        {
+          "documentId": "bow499hrrdi0zly3scmti46v",
+          "slug": "mengapa-snapshot-konten",
+          "title": "Why the Astro site uses a Strapi content snapshot",
+          "summary": "CI cannot reach Strapi on a laptop. A JSON snapshot keeps builds automated without an online CMS.",
+          "content": "<p>For the Aksara portfolio, Strapi stays local. The website builds from exported JSON so GitHub Actions does not depend on a developer machine being online.</p><p>During local development, Astro may still read Strapi directly. The important part is that the data contract between CMS and pages stays the same.</p>",
+          "publishedAt": "2026-10-19T13:57:36.310Z",
+          "cover": null,
+          "seo": {
+            "metaTitle": "Strapi content snapshots for Astro",
+            "metaDescription": "Why a JSON snapshot lets CI build the site without an online Strapi instance.",
+            "metaRobots": "index,follow"
+          },
+          "author": {
+            "documentId": "ny1jm3byd9dqz6vuv31hec82",
+            "slug": "aksara-editorial",
+            "name": "Aksara Editorial",
+            "role": "Editorial team",
+            "bio": "Writes practical notes on agency websites, headless CMS, and bilingual content workflows.",
+            "avatar": null
+          },
+          "tags": [
+            {
+              "documentId": "y2wv059iv7grceyifykr5qw0",
+              "slug": "astro",
+              "name": "Astro"
+            },
+            {
+              "documentId": "x7oqtwdmuw0xcbwh2878pb9j",
+              "slug": "strapi",
+              "name": "Strapi"
+            },
+            {
+              "documentId": "jk21unw8mtuc4im7dn1272n0",
+              "slug": "seo",
+              "name": "SEO"
+            }
+          ],
+          "aiSummaryStatus": "manual"
+        }
+      ],
+      "tags": [
+        {
+          "documentId": "y2wv059iv7grceyifykr5qw0",
+          "slug": "astro",
+          "name": "Astro"
+        },
+        {
+          "documentId": "x7oqtwdmuw0xcbwh2878pb9j",
+          "slug": "strapi",
+          "name": "Strapi"
+        },
+        {
+          "documentId": "jk21unw8mtuc4im7dn1272n0",
+          "slug": "seo",
+          "name": "SEO"
+        }
+      ]
+    }
+  }
+}

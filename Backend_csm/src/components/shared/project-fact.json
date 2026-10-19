@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_shared_project_facts",
+  "info": {
+    "displayName": "Project Fact",
+    "description": "Verifiable project fact without performance claims"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true,
+      "maxLength": 80
+    },
+    "value": {
+      "type": "string",
+      "required": true,
+      "maxLength": 160
+    }
+  }
+}

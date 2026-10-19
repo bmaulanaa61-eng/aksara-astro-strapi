@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_shared_stat_items",
+  "info": {
+    "displayName": "Stat Item",
+    "description": "One factual portfolio statistic"
+  },
+  "options": {},
+  "attributes": {
+    "value": {
+      "type": "string",
+      "required": true,
+      "maxLength": 40
+    },
+    "label": {
+      "type": "string",
+      "required": true,
+      "maxLength": 100
+    },
+    "context": {
+      "type": "string",
+      "required": false,
+      "maxLength": 160
+    }
+  }
+}

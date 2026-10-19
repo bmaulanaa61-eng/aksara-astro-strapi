@@ -27,12 +27,37 @@ jobs:
           cache: npm
           cache-dependency-path: Backend_csm/package-lock.json
       - run: npm ci --no-audit --no-fund
+      - name: Lint
+        run: npm run lint
+      - name: Unit tests
+        run: npm test
       - name: Typecheck
         run: npx tsc --noEmit -p tsconfig.json
       - name: Build admin panel
         run: |
           cp .env.example .env
           npm run build
+
+  frontend:
+    name: Frontend · typecheck & build
+    runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: Frontend_astro
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24.19'
+          cache: npm
+          cache-dependency-path: Frontend_astro/package-lock.json
+      - run: npm ci --no-audit --no-fund
+      - name: Typecheck and build static site
+        run: npm run build
+      - name: Reject hardcoded local CMS URLs and public tokens
+        run: |
+          ! grep -R "localhost:1337" src
+          ! grep -R "PUBLIC_.*TOKEN" . --exclude-dir=node_modules --exclude-dir=dist
 
   docker:
     name: Docker Compose · boot & smoke test

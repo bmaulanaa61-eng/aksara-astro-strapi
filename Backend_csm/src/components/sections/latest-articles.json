@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_sections_latest_articles",
+  "info": {
+    "displayName": "Latest Articles",
+    "description": "Heading plus recent Insights articles"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "required": true,
+      "maxLength": 160
+    },
+    "intro": {
+      "type": "text",
+      "required": false,
+      "maxLength": 400
+    },
+    "articles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::article.article"
+    },
+    "limit": {
+      "type": "integer",
+      "required": true,
+      "default": 3,
+      "min": 1,
+      "max": 12
+    }
+  }
+}

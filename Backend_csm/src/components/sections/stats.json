@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_sections_stats",
+  "info": {
+    "displayName": "Stats",
+    "description": "Factual portfolio statistics only"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "required": false,
+      "maxLength": 160
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.stat-item",
+      "required": true,
+      "min": 1,
+      "max": 6
+    }
+  }
+}

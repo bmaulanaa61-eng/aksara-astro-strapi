@@ -1,0 +1,6 @@
+/* Demo: keep the admin sidebar focused on content editing. */
+a[href='/admin/plugins/content-type-builder'],
+a[href='/admin/plugins/cloud'],
+a[href^='https://market.strapi.io'] {
+  display: none !important;
+}

@@ -1,0 +1,64 @@
+---
+import type { Locale } from '../lib/types';
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const content = locale === 'id' ? {
+  eyebrow: 'Arsitektur sistem',
+  heading: 'Satu alur konten: Strapi, AI, lalu Astro',
+  intro: 'Konten dikelola di CMS, dibantu AI untuk draft editorial, lalu dibekukan menjadi snapshot yang dibangun Astro.',
+  note: 'Editor tetap memegang keputusan. AI hanya menyiapkan draft; tidak ada publish otomatis.',
+  steps: [
+    { tag: 'Backend / Strapi', title: 'Kelola konten', body: 'Artikel, halaman, layanan, proyek, dan media tersimpan sebagai content type bilingual.' },
+    { tag: 'Data / API', title: 'Akses terstruktur', body: 'PostgreSQL dengan REST dan GraphQL. Public hanya bisa membaca.' },
+    { tag: 'AI / Automation', title: 'Bantu editorial', body: 'Ringkasan, SEO, tag, alt text, dan draft terjemahan dipicu manual dari panel admin.' },
+    { tag: 'Frontend / Astro', title: 'Bangun static', body: 'Snapshot diekspor ke JSON, lalu Astro menghasilkan situs cepat tanpa CMS online.' },
+  ],
+} : {
+  eyebrow: 'System architecture',
+  heading: 'One content flow: Strapi, AI, then Astro',
+  intro: 'Content lives in the CMS, AI helps draft editorial fields, and the result is frozen into a snapshot that Astro builds.',
+  note: 'The editor stays in control. AI only prepares drafts; nothing publishes automatically.',
+  steps: [
+    { tag: 'Backend / Strapi', title: 'Manage content', body: 'Articles, pages, services, projects, and media live as bilingual content types.' },
+    { tag: 'Data / API', title: 'Structured access', body: 'PostgreSQL with REST and GraphQL. The public role can only read.' },
+    { tag: 'AI / Automation', title: 'Editorial support', body: 'Summaries, SEO, tags, alt text, and translation drafts are triggered from the admin panel.' },
+    { tag: 'Frontend / Astro', title: 'Static build', body: 'The snapshot is exported to JSON, then Astro generates a fast site without an online CMS.' },
+  ],
+};
+---
+<section class="system">
+  <div class="wrap">
+    <div class="system-head">
+      <p class="eyebrow">{content.eyebrow}</p>
+      <h2>{content.heading}</h2>
+      <p class="intro">{content.intro}</p>
+    </div>
+    <div class="flow">
+      {content.steps.map((step, index) => (
+        <article class="node">
+          <div class="node-top"><span class="tag">{step.tag}</span><span class="num">{String(index + 1).padStart(2, '0')}</span></div>
+          <h3>{step.title}</h3>
+          <p>{step.body}</p>
+        </article>
+      ))}
+    </div>
+    <p class="note">{content.note}</p>
+  </div>
+</section>
+<style>
+  .system{padding:clamp(4rem,8vw,7rem) 0;border-top:1px solid var(--line);background:linear-gradient(180deg,rgba(25,198,214,.04),rgba(91,75,255,.05))}
+  .system-head{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(18rem,.8fr);gap:2rem;align-items:end;margin-bottom:3rem}
+  .system-head h2{margin:.4rem 0 0;max-width:18ch}
+  .system-head .intro{margin:0;color:var(--muted)}
+  .flow{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+  .flow:before{content:'';position:absolute;left:2%;right:2%;top:2.6rem;border-top:1px dashed rgba(91,75,255,.35);z-index:0}
+  .node{position:relative;z-index:1;padding:1.4rem;border:1px solid var(--line);background:var(--white);box-shadow:var(--shadow)}
+  .node-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.4rem}
+  .tag{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--clay)}
+  .num{font-family:var(--font-mono);font-size:.7rem;color:var(--muted)}
+  .node h3{font-family:var(--font-body);font-size:1.05rem;font-weight:600;letter-spacing:0;margin:0 0 .5rem}
+  .node p{margin:0;font-size:.9rem;color:var(--muted)}
+  .note{margin:2rem 0 0;font-family:var(--font-mono);font-size:.7rem;letter-spacing:.04em;color:var(--muted)}
+  @media(max-width:900px){.flow{grid-template-columns:1fr 1fr}.flow:before{display:none}}
+  @media(max-width:600px){.system-head{grid-template-columns:1fr}.flow{grid-template-columns:1fr}}
+</style>

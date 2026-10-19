@@ -5,56 +5,139 @@
     "singularName": "article",
     "pluralName": "articles",
     "displayName": "Article",
-    "description": "Artikel insights dengan ringkasan & SEO otomatis"
+    "description": "Insights blog article with localized SEO and per-feature AI status"
   },
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {},
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
   "attributes": {
     "title": {
       "type": "string",
       "required": true,
-      "maxLength": 200
+      "maxLength": 200,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "slug": {
       "type": "uid",
       "targetField": "title",
       "required": true
     },
+    "summary": {
+      "type": "text",
+      "required": false,
+      "maxLength": 500,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
     "content": {
-      "type": "richtext"
+      "type": "richtext",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "cover": {
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": ["images"],
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
     },
-    "summary": {
-      "type": "text",
-      "maxLength": 500
-    },
-    "seoMeta": {
-      "type": "text",
-      "maxLength": 200
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "author": {
-      "type": "string",
-      "maxLength": 100,
-      "default": "Aksara Bitian"
-    },
-    "aiStatus": {
-      "type": "enumeration",
-      "enum": ["pending", "generated", "failed", "manual"],
-      "default": "pending",
-      "required": true
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::author.author",
+      "inversedBy": "articles"
     },
     "tags": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::tag.tag",
       "inversedBy": "articles"
+    },
+    "aiSummaryStatus": {
+      "type": "enumeration",
+      "enum": ["pending", "generated", "failed", "manual"],
+      "default": "pending",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "aiSeoStatus": {
+      "type": "enumeration",
+      "enum": ["pending", "generated", "failed", "manual"],
+      "default": "pending",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "aiTagsStatus": {
+      "type": "enumeration",
+      "enum": ["pending", "generated", "failed", "manual"],
+      "default": "pending",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "aiAltTextStatus": {
+      "type": "enumeration",
+      "enum": ["pending", "generated", "failed", "manual"],
+      "default": "pending",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "aiTranslationStatus": {
+      "type": "enumeration",
+      "enum": ["pending", "generated", "failed", "manual"],
+      "default": "pending",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }

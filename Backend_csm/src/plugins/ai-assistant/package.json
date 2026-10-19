@@ -1,0 +1,10 @@
+{
+  "name": "ai-assistant",
+  "version": "0.1.0",
+  "private": true,
+  "strapi": {
+    "name": "ai-assistant",
+    "displayName": "AI Assistant",
+    "description": "Manual editorial AI actions"
+  }
+}

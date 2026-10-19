@@ -2,7 +2,7 @@
 
 Headless CMS + marketing website for **Aksara**, a fictional digital agency, built to production standards as a portfolio project.
 
-- **Strapi v5** manages agency content (pages, services, case studies, articles) and ships an **AI Assistant** inside the admin panel that drafts summaries, SEO metadata, tag suggestions and image alt text — always reviewed and editable by the editor.
+- **Strapi v5** manages bilingual agency content (pages, services, case studies, articles) and includes an **AI Assistant** inside the admin panel for editor-reviewed summaries, SEO metadata, tag suggestions, alt text, and translation drafts.
 - **Astro** renders the public website as a static site.
 
 > Aksara is a fictional company. Names, clients and case studies on the demo site are illustrative.
@@ -13,10 +13,10 @@ Work in progress. Milestones:
 
 | | Milestone | State |
 |---|---|---|
-| M0 | Foundation: repo, Docker Compose, CI | in progress |
-| M1 | Agency content model + seed data | planned |
-| M2 | AI Assistant in the Strapi admin | planned |
-| M3 | Astro website | planned |
+| M0 | Foundation: repo, Docker Compose, CI | complete |
+| M1 | Agency content model + seed data | complete |
+| M2 | AI Assistant in the Strapi admin | implemented; runtime smoke pending |
+| M3 | Astro website | implemented; visual/runtime review pending |
 | M4 | Deploy (Cloudflare Pages) + CD | planned |
 | M5 | Polish: Lighthouse, Playwright, demo video | planned |
 
@@ -45,7 +45,7 @@ Open http://localhost:1337/admin and create the first admin user.
 
 ### Option B — Node + your own PostgreSQL
 
-Requires Node 24.19 and PostgreSQL 14+.
+Requires Node 24.19 and PostgreSQL 17.
 
 ```bash
 cd Backend_csm
@@ -60,6 +60,14 @@ npm run develop         # http://localhost:1337/admin
 - **Public API is read-only.** The Public role gets `find`/`findOne` only, seeded from code in `src/index.ts`, and CI asserts that writes return `403`.
 - **AI is editor-triggered.** No lifecycle hooks or cron: the editor presses a button in the admin, can review and edit the result, and AI never overwrites without confirmation. Any OpenAI-compatible endpoint works via `AI_*` env vars.
 - **Static website.** The site is built from a content snapshot so it stays fast and free to host without a running backend.
+
+## Public website
+
+The Astro frontend lives in [`Frontend_astro`](Frontend_astro). It includes bilingual ID/EN routes, localized SEO and language switching, service/project/article pages, RSS, sitemap, and a committed content snapshot. Run `npm run content:export` in that directory while Strapi is available to refresh the snapshot.
+
+## AI Assistant
+
+On an Article edit page, use the **AI Assistant** side panel to run one action at a time. Configure the provider with the `AI_*` variables documented in [`Backend_csm/.env.example`](Backend_csm/.env.example). Existing values require confirmation before replacement, and generated translations are saved only as drafts.
 
 ## Contributing workflow
 
